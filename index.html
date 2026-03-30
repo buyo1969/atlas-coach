@@ -8,20 +8,20 @@
 <meta name="apple-mobile-web-app-title" content="Atlas Coach"/>
 <meta name="theme-color" content="#0a0a0f"/>
 <title>Atlas Coach</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 :root{--bg:#0a0a0f;--bg2:#12121a;--bg3:#1e1e2e;--bg4:#2a2a3a;--or:#ff4d00;--or2:#ff9500;--cy:#00d4ff;--gr:#00ff88;--tx:#fff;--tx2:#888;--tx3:#555;--tx4:#333;--bd:#1e1e2e;--safe-top:env(safe-area-inset-top,0px);--safe-bot:env(safe-area-inset-bottom,0px)}
 [data-theme=light]{--bg:#f0f0f5;--bg2:#fff;--bg3:#e8e8f0;--bg4:#d0d0e0;--tx:#0a0a0f;--tx2:#444;--tx3:#666;--tx4:#999;--bd:#e0e0ec}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;background:var(--bg);font-family:'Syne',sans-serif;color:var(--tx);overflow:hidden;transition:background .3s,color .3s}
+html,body{height:100%;background:var(--bg);font-family:'Outfit',sans-serif;color:var(--tx);overflow:hidden;transition:background .3s,color .3s}
 input,textarea,select,button{font-family:inherit}
 input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
 #app{display:flex;flex-direction:column;height:100vh;height:100dvh;max-width:430px;margin:0 auto;position:relative}
 #nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:var(--bg2);border-top:1px solid var(--bd);display:flex;padding:8px 0;padding-bottom:calc(8px + var(--safe-bot));z-index:200;transition:background .3s}
-.nb{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:none;cursor:pointer;padding:4px 0;color:var(--tx4);transition:color .2s;font-family:'Syne',sans-serif}
+.nb{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:none;cursor:pointer;padding:4px 0;color:var(--tx4);transition:color .2s;font-family:'Outfit',sans-serif}
 .nb.on{color:var(--or)}
 .nb svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.nl{font-size:9px;font-weight:600;letter-spacing:.5px}
+.nl{font-size:9px;font-weight:600;letter-spacing:.3px}
 #screens{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-top:var(--safe-top);padding-bottom:calc(74px + var(--safe-bot))}
 .scr{display:none;padding:20px 16px;animation:fi .2s ease}
 .scr.on{display:block}
@@ -29,7 +29,7 @@ input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
 #scr-coach{display:none;flex-direction:column;height:calc(100dvh - 74px - var(--safe-bot) - var(--safe-top));padding:0}
 #scr-coach.on{display:flex}
 h1.pt{font-size:22px;font-weight:800;margin-bottom:20px}
-.sl{font-size:11px;color:var(--tx3);font-weight:700;letter-spacing:1px;margin-bottom:10px;font-family:'DM Sans',sans-serif}
+.sl{font-size:11px;color:var(--tx3);font-weight:700;letter-spacing:1px;margin-bottom:10px;font-family:'Plus Jakarta Sans',sans-serif}
 .card{background:var(--bg2);border-radius:16px;padding:14px 16px;border:1px solid var(--bd);margin-bottom:12px;transition:background .3s}
 .ct{font-size:13px;font-weight:700;margin-bottom:12px}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -37,39 +37,39 @@ h1.pt{font-size:22px;font-weight:800;margin-bottom:20px}
 .g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px}
 .scard{background:var(--bg2);border-radius:16px;padding:14px 12px;border:1px solid var(--bd);transition:background .3s}
 .sv{font-size:20px;font-weight:800}
-.slb{font-size:10px;color:var(--tx3);font-family:'DM Sans',sans-serif;margin-top:3px}
-.btnp{width:100%;padding:14px;background:linear-gradient(135deg,var(--or),var(--or2));color:#fff;border:none;border-radius:12px;font-weight:700;font-size:14px;cursor:pointer;font-family:'Syne',sans-serif;margin-top:8px}
+.slb{font-size:10px;color:var(--tx3);font-family:'Plus Jakarta Sans',sans-serif;margin-top:3px}
+.btnp{width:100%;padding:14px;background:linear-gradient(135deg,var(--or),var(--or2));color:#fff;border:none;border-radius:12px;font-weight:700;font-size:14px;cursor:pointer;font-family:'Outfit',sans-serif;margin-top:8px}
 .btnp:disabled{background:var(--bg3);color:var(--tx4);cursor:not-allowed}
-.btns{padding:7px 14px;border-radius:20px;background:var(--bg3);border:1px solid var(--bg4);color:var(--tx3);font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap}
+.btns{padding:7px 14px;border-radius:20px;background:var(--bg3);border:1px solid var(--bg4);color:var(--tx3);font-size:11px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;white-space:nowrap}
 .btni{width:36px;height:36px;border-radius:10px;background:var(--bg3);color:var(--tx);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .btni.on{background:var(--or);color:#fff}
 .btni svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.inp{width:100%;padding:11px 13px;background:var(--bg);border:1.5px solid var(--bg4);border-radius:10px;color:var(--tx);font-size:13px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+.inp{width:100%;padding:11px 13px;background:var(--bg);border:1.5px solid var(--bg4);border-radius:10px;color:var(--tx);font-size:13px;font-family:'Plus Jakarta Sans',sans-serif;outline:none;transition:border-color .2s}
 .inp:focus{border-color:var(--or)}
 .inp::placeholder{color:var(--tx4)}
-.ilb{font-size:10px;color:var(--tx3);letter-spacing:.8px;display:block;margin-bottom:4px;font-family:'DM Sans',sans-serif}
+.ilb{font-size:10px;color:var(--tx3);letter-spacing:.8px;display:block;margin-bottom:4px;font-family:'Plus Jakarta Sans',sans-serif}
 .ptk{height:7px;background:var(--bg3);border-radius:4px;overflow:hidden}
 .pfl{height:100%;border-radius:4px;transition:width .5s ease}
-.tag{display:inline-block;font-size:10px;padding:3px 9px;border-radius:20px;font-family:'DM Sans',sans-serif}
+.tag{display:inline-block;font-size:10px;padding:3px 9px;border-radius:20px;font-family:'Plus Jakarta Sans',sans-serif}
 .tg{background:rgba(0,255,136,.1);color:var(--gr)}
 .tc{background:rgba(0,212,255,.1);color:var(--cy)}
 .to{background:rgba(255,149,0,.1);color:var(--or2)}
 .tr{background:rgba(255,77,0,.1);color:var(--or)}
 .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .sep{border:none;border-top:1px solid var(--bd);margin:10px 0}
-.tip{font-size:12px;color:var(--tx3);font-family:'DM Sans',sans-serif;line-height:1.5}
+.tip{font-size:12px;color:var(--tx3);font-family:'Plus Jakarta Sans',sans-serif;line-height:1.5}
 /* ONBOARDING */
 #onboard{display:none;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:24px;animation:fi .3s ease}
 #onboard.on{display:flex}
 .logo{display:flex;align-items:center;gap:10px;margin-bottom:48px}
 .logo-icon{width:44px;height:44px;background:linear-gradient(135deg,var(--or),var(--or2));border-radius:12px;display:flex;align-items:center;justify-content:center}
 .logo-icon svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-.logo-name{font-size:22px;font-weight:800;letter-spacing:-.5px}
+.logo-name{font-size:22px;font-weight:800;letter-spacing:-.2px}
 .ob-card{width:100%;max-width:380px;background:var(--bg2);border-radius:24px;padding:28px 24px;border:1px solid var(--bd)}
 .ob-icon{width:46px;height:46px;background:var(--bg3);border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:var(--or)}
 .ob-icon svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .ob-title{font-size:21px;font-weight:700;margin-bottom:6px;line-height:1.2}
-.ob-sub{font-size:13px;color:var(--tx3);margin-bottom:20px;font-family:'DM Sans',sans-serif}
+.ob-sub{font-size:13px;color:var(--tx3);margin-bottom:20px;font-family:'Plus Jakarta Sans',sans-serif}
 .ob-prog{display:flex;gap:5px;margin-bottom:36px}
 .ob-dot{height:8px;border-radius:4px;background:var(--bg3);transition:all .3s ease}
 /* API KEY */
@@ -82,14 +82,14 @@ h1.pt{font-size:22px;font-weight:800;margin-bottom:20px}
 .chat-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
 .msg-wrap{display:flex;gap:8px;align-items:flex-end}
 .msg-wrap.user{justify-content:flex-end}
-.msg-bubble{max-width:80%;padding:10px 14px;border-radius:18px;font-size:13px;line-height:1.6;font-family:'DM Sans',sans-serif;white-space:pre-wrap}
+.msg-bubble{max-width:80%;padding:10px 14px;border-radius:18px;font-size:13px;line-height:1.6;font-family:'Plus Jakarta Sans',sans-serif;white-space:pre-wrap}
 .msg-bubble.ai{background:var(--bg2);border:1px solid var(--bd);border-radius:18px 18px 18px 4px}
 .msg-bubble.user{background:linear-gradient(135deg,var(--or),var(--or2));color:#fff;border-radius:18px 18px 4px 18px}
 .chat-footer{padding:10px 14px;border-top:1px solid var(--bd)}
 .chat-qp{display:flex;overflow-x:auto;gap:6px;margin-bottom:8px;padding-bottom:2px}
 .chat-qp::-webkit-scrollbar{display:none}
 .chat-input-row{display:flex;gap:8px;align-items:flex-end}
-.chat-ta{flex:1;padding:10px 13px;border-radius:12px;background:var(--bg2);border:1.5px solid var(--bd);color:var(--tx);font-size:13px;font-family:'DM Sans',sans-serif;resize:none;outline:none;line-height:1.5;max-height:100px}
+.chat-ta{flex:1;padding:10px 13px;border-radius:12px;background:var(--bg2);border:1.5px solid var(--bd);color:var(--tx);font-size:13px;font-family:'Plus Jakarta Sans',sans-serif;resize:none;outline:none;line-height:1.5;max-height:100px}
 .send-btn{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--or),var(--or2));color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .send-btn:disabled{background:var(--bg3);cursor:not-allowed}
 .send-btn svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
@@ -104,7 +104,7 @@ h1.pt{font-size:22px;font-weight:800;margin-bottom:20px}
 .exlist{display:flex;flex-direction:column;gap:6px}
 .exrow{background:var(--bg3);border-radius:9px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center}
 .exname{font-size:12px;font-weight:600}
-.exparam{font-size:11px;color:var(--tx3);font-family:'DM Sans',sans-serif;margin-top:2px}
+.exparam{font-size:11px;color:var(--tx3);font-family:'Plus Jakarta Sans',sans-serif;margin-top:2px}
 /* SUPPLEMENT CHECK */
 .supp-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--bd)}
 .supp-check{width:22px;height:22px;border-radius:7px;border:2px solid var(--bg4);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:all .2s}
@@ -119,7 +119,7 @@ h1.pt{font-size:22px;font-weight:800;margin-bottom:20px}
 .chart-wrap{width:100%;overflow:hidden}
 /* MEASURES */
 .mrow{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--bd)}
-.mlabel{font-size:12px;color:var(--tx2);font-family:'DM Sans',sans-serif}
+.mlabel{font-size:12px;color:var(--tx2);font-family:'Plus Jakarta Sans',sans-serif}
 .mval{font-size:14px;font-weight:700}
 /* SCROLLBAR */
 ::-webkit-scrollbar{width:3px;height:3px}
@@ -177,7 +177,7 @@ select.inp option{background:var(--bg2);color:var(--tx)}
     <!-- HOME -->
     <div class="scr on" id="scr-home">
       <div style="margin-bottom:20px">
-        <p style="color:var(--tx3);font-size:13px;margin-bottom:4px;font-family:'DM Sans',sans-serif" id="home-date"></p>
+        <p style="color:var(--tx3);font-size:13px;margin-bottom:4px;font-family:'Plus Jakarta Sans',sans-serif" id="home-date"></p>
         <h1 style="font-size:26px;font-weight:800;line-height:1.1" id="home-greeting"></h1>
       </div>
       <!-- Phase banner -->
@@ -188,12 +188,12 @@ select.inp option{background:var(--bg2);color:var(--tx)}
       <div class="card">
         <div class="row" style="margin-bottom:10px">
           <span class="ct" style="margin:0">Balance calórico hoy</span>
-          <span style="font-size:12px;color:var(--tx3);font-family:'DM Sans',sans-serif" id="cal-nums"></span>
+          <span style="font-size:12px;color:var(--tx3);font-family:'Plus Jakarta Sans',sans-serif" id="cal-nums"></span>
         </div>
         <div class="ptk"><div class="pfl" id="cal-bar" style="background:linear-gradient(90deg,var(--cy),var(--gr))"></div></div>
         <div class="row" style="margin-top:8px">
-          <span style="font-size:11px;color:var(--tx3);font-family:'DM Sans',sans-serif" id="cal-remain"></span>
-          <span style="font-size:11px;color:var(--tx3);font-family:'DM Sans',sans-serif" id="cal-tdee"></span>
+          <span style="font-size:11px;color:var(--tx3);font-family:'Plus Jakarta Sans',sans-serif" id="cal-remain"></span>
+          <span style="font-size:11px;color:var(--tx3);font-family:'Plus Jakarta Sans',sans-serif" id="cal-tdee"></span>
         </div>
       </div>
       <!-- Macros -->
@@ -262,7 +262,7 @@ select.inp option{background:var(--bg2);color:var(--tx)}
           <!-- Photo tab -->
           <div id="nutri-photo">
             <img id="photo-preview" alt="preview"/>
-            <label style="display:block;width:100%;padding:30px;background:var(--bg3);border:2px dashed var(--bg4);border-radius:12px;text-align:center;cursor:pointer;color:var(--tx3);font-size:13px;font-family:'DM Sans',sans-serif">
+            <label style="display:block;width:100%;padding:30px;background:var(--bg3);border:2px dashed var(--bg4);border-radius:12px;text-align:center;cursor:pointer;color:var(--tx3);font-size:13px;font-family:'Plus Jakarta Sans',sans-serif">
               📷 Toca para fotografiar tu comida
               <input type="file" accept="image/*" capture="environment" id="food-photo-input" style="display:none"/>
             </label>
@@ -400,7 +400,7 @@ select.inp option{background:var(--bg2);color:var(--tx)}
         <div class="chat-avatar"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></div>
         <div>
           <div style="font-size:14px;font-weight:700">Atlas Coach AI</div>
-          <div style="font-size:11px;color:var(--gr);font-family:'DM Sans',sans-serif" id="coach-status">● Online</div>
+          <div style="font-size:11px;color:var(--gr);font-family:'Plus Jakarta Sans',sans-serif" id="coach-status">● Online</div>
         </div>
         <div style="flex:1"></div>
         <button class="btni" id="clear-chat-btn" title="Limpiar chat">
@@ -426,7 +426,7 @@ select.inp option{background:var(--bg2);color:var(--tx)}
       <div class="card">
         <div class="ct">Apariencia</div>
         <div class="row">
-          <span style="font-size:13px;font-family:'DM Sans',sans-serif">Modo oscuro</span>
+          <span style="font-size:13px;font-family:'Plus Jakarta Sans',sans-serif">Modo oscuro</span>
           <button class="toggle on" id="theme-toggle"></button>
         </div>
       </div>
@@ -549,11 +549,11 @@ function applyTheme(){
 // ── API ────────────────────────────────────────────────────────────
 async function callAI(messages, system, maxTok=800){
   const key = S.apiKey;
-  if(!key) return 'Configura tu API key en Ajustes.';
+  if(!key) return '⚙️ Para usar el Coach AI necesitas añadir tu API key en la pestaña Ajustes. Es gratis en console.anthropic.com';
   try{
     const r = await fetch('https://api.anthropic.com/v1/messages',{
       method:'POST',
-      headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01'},
+      headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
       body: JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:maxTok,system,messages})
     });
     const d = await r.json();
@@ -608,7 +608,7 @@ function renderOnboard(){
   document.getElementById('ob-sub').textContent=step.sub;
   const f=document.getElementById('ob-field');
   if(step.type==='select'){
-    f.innerHTML=`<div style="display:flex;gap:8px">${step.options.map(o=>`<button onclick="selectOb('${step.field}','${o}')" id="obsel-${o}" style="flex:1;padding:12px;border-radius:12px;border:2px solid var(--bg4);background:var(--bg);color:var(--tx3);font-weight:600;font-size:13px;cursor:pointer;font-family:'Syne',sans-serif;text-transform:capitalize">${o}</button>`).join('')}</div>`;
+    f.innerHTML=`<div style="display:flex;gap:8px">${step.options.map(o=>`<button onclick="selectOb('${step.field}','${o}')" id="obsel-${o}" style="flex:1;padding:12px;border-radius:12px;border:2px solid var(--bg4);background:var(--bg);color:var(--tx3);font-weight:600;font-size:13px;cursor:pointer;font-family:'Outfit',sans-serif;text-transform:capitalize">${o}</button>`).join('')}</div>`;
     if(obData[step.field]) selectOb(step.field,obData[step.field]);
   } else {
     f.innerHTML=`<input class="inp" id="ob-input" type="${step.type}" placeholder="${step.placeholder||''}" value="${obData[step.field]||''}"/>`;
@@ -651,8 +651,8 @@ function finishOnboard(){
   S.goal='cut';
   save();
   document.getElementById('onboard').style.display='none';
-  document.getElementById('apisetup').className='on';
-  document.getElementById('apisetup').style.display='flex';
+  document.getElementById('app').style.display='flex';
+  initApp();
 }
 
 document.getElementById('ob-next').addEventListener('click',obNext);
@@ -744,12 +744,12 @@ function renderHome(){
   // Macros
   const tCarbs=Math.round((tCal*(S.goal==='cut'?.35:.4))/4);
   const tFat=Math.round((tCal*.25)/9);
-  document.getElementById('home-macros').innerHTML=`<div class="ct">Macros objetivo</div>${[['Proteína',tProt+'g','var(--or)'],['Carbohidratos',tCarbs+'g','var(--cy)'],['Grasas',tFat+'g','var(--or2)']].map(([n,v,c],i)=>`<div style="display:flex;align-items:center;gap:10px;${i<2?'margin-bottom:10px':''}"><div style="width:8px;height:8px;border-radius:50%;background:${c};flex-shrink:0"></div><span style="flex:1;font-size:12px;color:var(--tx2);font-family:'DM Sans',sans-serif">${n}</span><span style="font-size:14px;font-weight:700">${v}</span></div>`).join('')}`;
+  document.getElementById('home-macros').innerHTML=`<div class="ct">Macros objetivo</div>${[['Proteína',tProt+'g','var(--or)'],['Carbohidratos',tCarbs+'g','var(--cy)'],['Grasas',tFat+'g','var(--or2)']].map(([n,v,c],i)=>`<div style="display:flex;align-items:center;gap:10px;${i<2?'margin-bottom:10px':''}"><div style="width:8px;height:8px;border-radius:50%;background:${c};flex-shrink:0"></div><span style="flex:1;font-size:12px;color:var(--tx2);font-family:'Plus Jakarta Sans',sans-serif">${n}</span><span style="font-size:14px;font-weight:700">${v}</span></div>`).join('')}`;
 
   // Supplements quick view
   const tSupps=S.supplements.slice(0,4);
   const todayChecks=S.suppChecks[today()]||{};
-  document.getElementById('home-supps').innerHTML=`<div class="ct">Suplementos hoy</div>${tSupps.length?tSupps.map(s=>`<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><div style="width:20px;height:20px;border-radius:6px;background:${todayChecks[s.id]?'var(--gr)':'var(--bg3)'};display:flex;align-items:center;justify-content:center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="${todayChecks[s.id]?'#000':'var(--tx4)'}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span style="font-size:12px;font-family:'DM Sans',sans-serif;color:${todayChecks[s.id]?'var(--tx3)':'var(--tx)'};${todayChecks[s.id]?'text-decoration:line-through':''}">${s.name}</span><span style="font-size:11px;color:var(--tx3);font-family:'DM Sans',sans-serif;margin-left:auto">${s.dose}</span></div>`).join(''):`<p class="tip">Ve a Suplementos para añadir tu stack.</p>`}${tSupps.length?`<button class="btns" onclick="goTo('supps')">Ver todos →</button>`:''}`;
+  document.getElementById('home-supps').innerHTML=`<div class="ct">Suplementos hoy</div>${tSupps.length?tSupps.map(s=>`<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><div style="width:20px;height:20px;border-radius:6px;background:${todayChecks[s.id]?'var(--gr)':'var(--bg3)'};display:flex;align-items:center;justify-content:center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="${todayChecks[s.id]?'#000':'var(--tx4)'}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span style="font-size:12px;font-family:'Plus Jakarta Sans',sans-serif;color:${todayChecks[s.id]?'var(--tx3)':'var(--tx)'};${todayChecks[s.id]?'text-decoration:line-through':''}">${s.name}</span><span style="font-size:11px;color:var(--tx3);font-family:'Plus Jakarta Sans',sans-serif;margin-left:auto">${s.dose}</span></div>`).join(''):`<p class="tip">Ve a Suplementos para añadir tu stack.</p>`}${tSupps.length?`<button class="btns" onclick="goTo('supps')">Ver todos →</button>`:''}`;
 }
 
 // ── WORKOUT ────────────────────────────────────────────────────────
@@ -797,11 +797,11 @@ function renderTodayExercises(){
     exs.map(e=>`<div class="card" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
       <div><div style="font-size:13px;font-weight:700;margin-bottom:4px">${e.name}</div>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        ${e.sets?`<span style="font-size:11px;color:var(--or);font-family:'DM Sans',sans-serif">${e.sets} series</span>`:''}
-        ${e.reps?`<span style="font-size:11px;color:var(--cy);font-family:'DM Sans',sans-serif">${e.reps} reps</span>`:''}
-        ${e.kg?`<span style="font-size:11px;color:var(--or2);font-family:'DM Sans',sans-serif">${e.kg}kg</span>`:''}
-        ${e.rpe?`<span style="font-size:11px;color:var(--gr);font-family:'DM Sans',sans-serif">RPE ${e.rpe}</span>`:''}
-      </div>${e.notes?`<div style="font-size:11px;color:var(--tx4);margin-top:3px;font-family:'DM Sans',sans-serif">${e.notes}</div>`:''}</div>
+        ${e.sets?`<span style="font-size:11px;color:var(--or);font-family:'Plus Jakarta Sans',sans-serif">${e.sets} series</span>`:''}
+        ${e.reps?`<span style="font-size:11px;color:var(--cy);font-family:'Plus Jakarta Sans',sans-serif">${e.reps} reps</span>`:''}
+        ${e.kg?`<span style="font-size:11px;color:var(--or2);font-family:'Plus Jakarta Sans',sans-serif">${e.kg}kg</span>`:''}
+        ${e.rpe?`<span style="font-size:11px;color:var(--gr);font-family:'Plus Jakarta Sans',sans-serif">RPE ${e.rpe}</span>`:''}
+      </div>${e.notes?`<div style="font-size:11px;color:var(--tx4);margin-top:3px;font-family:'Plus Jakarta Sans',sans-serif">${e.notes}</div>`:''}</div>
       <button onclick="removeEx('${e.id}')" style="background:none;border:none;color:var(--tx4);cursor:pointer;padding:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6M9 6V4h6v2"/></svg></button>
     </div>`).join('');
 }
@@ -868,14 +868,14 @@ function renderNutrition(){
   const tProt=targetProt(p);
   document.getElementById('nutri-summary').innerHTML=`<div class="ct">Hoy</div>
     <div class="g4" style="margin-bottom:10px">
-      ${[['Kcal',tot.kcal,tCal,'#fff'],['Prot',tot.prot+'g',tProt+'g','var(--or)'],['Carbs',tot.carbs+'g','-','var(--cy)'],['Grasas',tot.fat+'g','-','var(--or2)']].map(([l,v,t,c])=>`<div style="text-align:center"><div style="font-size:18px;font-weight:800;color:${c}">${v}</div><div style="font-size:10px;color:var(--tx3);font-family:'DM Sans',sans-serif">${l}</div><div style="font-size:10px;color:var(--tx4);font-family:'DM Sans',sans-serif">/${t}</div></div>`).join('')}
+      ${[['Kcal',tot.kcal,tCal,'#fff'],['Prot',tot.prot+'g',tProt+'g','var(--or)'],['Carbs',tot.carbs+'g','-','var(--cy)'],['Grasas',tot.fat+'g','-','var(--or2)']].map(([l,v,t,c])=>`<div style="text-align:center"><div style="font-size:18px;font-weight:800;color:${c}">${v}</div><div style="font-size:10px;color:var(--tx3);font-family:'Plus Jakarta Sans',sans-serif">${l}</div><div style="font-size:10px;color:var(--tx4);font-family:'Plus Jakarta Sans',sans-serif">/${t}</div></div>`).join('')}
     </div>
     <div class="ptk"><div class="pfl" style="width:${Math.min((tot.kcal/tCal)*100,100)}%;background:${tot.kcal>tCal?'var(--or)':'linear-gradient(90deg,var(--cy),var(--gr))'}"></div></div>`;
   const ml=document.getElementById('meal-list');
   document.getElementById('meals-label').style.display=tm.length?'block':'none';
   ml.innerHTML=tm.map(m=>`<div class="card" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
     <div><div style="font-size:13px;font-weight:700;margin-bottom:4px">${m.name}</div>
-    <div style="display:flex;gap:8px"><span style="font-size:11px;font-family:'DM Sans',sans-serif">${m.kcal} kcal</span>${m.prot?`<span style="font-size:11px;color:var(--or);font-family:'DM Sans',sans-serif">P:${m.prot}g</span>`:''}${m.carbs?`<span style="font-size:11px;color:var(--cy);font-family:'DM Sans',sans-serif">C:${m.carbs}g</span>`:''}${m.fat?`<span style="font-size:11px;color:var(--or2);font-family:'DM Sans',sans-serif">G:${m.fat}g</span>`:''}
+    <div style="display:flex;gap:8px"><span style="font-size:11px;font-family:'Plus Jakarta Sans',sans-serif">${m.kcal} kcal</span>${m.prot?`<span style="font-size:11px;color:var(--or);font-family:'Plus Jakarta Sans',sans-serif">P:${m.prot}g</span>`:''}${m.carbs?`<span style="font-size:11px;color:var(--cy);font-family:'Plus Jakarta Sans',sans-serif">C:${m.carbs}g</span>`:''}${m.fat?`<span style="font-size:11px;color:var(--or2);font-family:'Plus Jakarta Sans',sans-serif">G:${m.fat}g</span>`:''}
     </div></div>
     <button onclick="removeMeal('${m.id}')" style="background:none;border:none;color:var(--tx4);cursor:pointer;padding:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6M9 6V4h6v2"/></svg></button>
   </div>`).join('');
@@ -925,7 +925,7 @@ document.getElementById('analyze-photo-btn').addEventListener('click',async func
   try{
     const r=await fetch('https://api.anthropic.com/v1/messages',{
       method:'POST',
-      headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01'},
+      headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
       body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:400,
         messages:[{role:'user',content:[
           {type:'image',source:{type:'base64',media_type:mime,data:b64}},
@@ -939,7 +939,7 @@ document.getElementById('analyze-photo-btn').addEventListener('click',async func
     res.style.display='block';
     res.innerHTML=`<div class="card" style="margin:0;background:var(--bg3)"><div style="font-size:14px;font-weight:700;margin-bottom:8px">🍽️ ${obj.name}</div>
       <div class="g4" style="margin-bottom:10px">
-        ${[['Kcal',obj.kcal,'#fff'],['Prot',obj.prot+'g','var(--or)'],['Carbs',obj.carbs+'g','var(--cy)'],['Grasas',obj.fat+'g','var(--or2)']].map(([l,v,c])=>`<div style="text-align:center"><div style="font-size:16px;font-weight:800;color:${c}">${v}</div><div style="font-size:10px;color:var(--tx3);font-family:'DM Sans',sans-serif">${l}</div></div>`).join('')}
+        ${[['Kcal',obj.kcal,'#fff'],['Prot',obj.prot+'g','var(--or)'],['Carbs',obj.carbs+'g','var(--cy)'],['Grasas',obj.fat+'g','var(--or2)']].map(([l,v,c])=>`<div style="text-align:center"><div style="font-size:16px;font-weight:800;color:${c}">${v}</div><div style="font-size:10px;color:var(--tx3);font-family:'Plus Jakarta Sans',sans-serif">${l}</div></div>`).join('')}
       </div>
       <p class="tip" style="margin-bottom:10px">${obj.nota||''}</p>
       <button class="btnp" onclick="addMeal({name:'${obj.name.replace(/'/g,"\\'")}',kcal:${obj.kcal},prot:${obj.prot},carbs:${obj.carbs},fat:${obj.fat}})">Añadir al registro</button></div>`;
@@ -961,7 +961,7 @@ document.getElementById('food-search-btn').addEventListener('click',async()=>{
   try{
     const obj=JSON.parse(txt.replace(/```json|```/g,'').trim());
     res.innerHTML=`<div class="card" style="margin:0;background:var(--bg3)"><div style="font-size:14px;font-weight:700;margin-bottom:8px">🥗 ${obj.name}</div>
-      <div class="g4" style="margin-bottom:10px">${[['Kcal',obj.kcal,'#fff'],['Prot',obj.prot+'g','var(--or)'],['Carbs',obj.carbs+'g','var(--cy)'],['Grasas',obj.fat+'g','var(--or2)']].map(([l,v,c])=>`<div style="text-align:center"><div style="font-size:16px;font-weight:800;color:${c}">${v}</div><div style="font-size:10px;color:var(--tx3);font-family:'DM Sans',sans-serif">${l}</div></div>`).join('')}</div>
+      <div class="g4" style="margin-bottom:10px">${[['Kcal',obj.kcal,'#fff'],['Prot',obj.prot+'g','var(--or)'],['Carbs',obj.carbs+'g','var(--cy)'],['Grasas',obj.fat+'g','var(--or2)']].map(([l,v,c])=>`<div style="text-align:center"><div style="font-size:16px;font-weight:800;color:${c}">${v}</div><div style="font-size:10px;color:var(--tx3);font-family:'Plus Jakarta Sans',sans-serif">${l}</div></div>`).join('')}</div>
       <p class="tip" style="margin-bottom:10px">${obj.nota||''}</p>
       <button class="btnp" onclick="addMeal({name:'${obj.name.replace(/'/g,"\\'")}',kcal:${obj.kcal},prot:${obj.prot},carbs:${obj.carbs},fat:${obj.fat}})">Añadir</button></div>`;
   }catch(e){ res.innerHTML='<p class="tip">No se pudo analizar. Intenta ser más específico.</p>'; }
@@ -988,7 +988,7 @@ function renderSupps(){
       </div>
       <div style="flex:1">
         <div style="font-size:13px;font-weight:600;${checks[s.id]?'color:var(--tx3);text-decoration:line-through':''}">${s.name}</div>
-        <div style="font-size:11px;color:var(--tx3);font-family:'DM Sans',sans-serif">${s.dose}${s.time?' · '+s.time:''}</div>
+        <div style="font-size:11px;color:var(--tx3);font-family:'Plus Jakarta Sans',sans-serif">${s.dose}${s.time?' · '+s.time:''}</div>
       </div>
     </div>`).join(''):'<p class="tip">Añade tus suplementos con el botón +</p>';
 
@@ -1001,13 +1001,13 @@ function renderSupps(){
     const dc=S.suppChecks[d]||{};
     const done=S.supplements.filter(s=>dc[s.id]).length;
     const pct=S.supplements.length?done/S.supplements.length:0;
-    return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px"><div style="width:100%;height:${Math.max(pct*44,4)}px;border-radius:3px;background:${pct>0.8?'var(--gr)':pct>0.5?'var(--or2)':'var(--bg4)'};align-self:flex-end"></div><span style="font-size:9px;color:var(--tx3);font-family:'DM Sans',sans-serif">${new Date(d+'T12:00:00').toLocaleDateString('es-ES',{weekday:'short'}).slice(0,3)}</span></div>`;
+    return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px"><div style="width:100%;height:${Math.max(pct*44,4)}px;border-radius:3px;background:${pct>0.8?'var(--gr)':pct>0.5?'var(--or2)':'var(--bg4)'};align-self:flex-end"></div><span style="font-size:9px;color:var(--tx3);font-family:'Plus Jakarta Sans',sans-serif">${new Date(d+'T12:00:00').toLocaleDateString('es-ES',{weekday:'short'}).slice(0,3)}</span></div>`;
   }).join('')}</div>`;
 
   // Manage list
   const ml=document.getElementById('supp-list-manage');
   ml.innerHTML=S.supplements.map(s=>`<div class="card" style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
-    <div style="flex:1"><div style="font-size:13px;font-weight:700">${s.name}</div><div style="font-size:11px;color:var(--tx3);font-family:'DM Sans',sans-serif">${s.dose}${s.time?' · '+s.time:''}</div></div>
+    <div style="flex:1"><div style="font-size:13px;font-weight:700">${s.name}</div><div style="font-size:11px;color:var(--tx3);font-family:'Plus Jakarta Sans',sans-serif">${s.dose}${s.time?' · '+s.time:''}</div></div>
     <button onclick="removeSupp('${s.id}')" style="background:none;border:none;color:var(--tx4);cursor:pointer;padding:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6M9 6V4h6v2"/></svg></button>
   </div>`).join('');
 }
@@ -1109,7 +1109,7 @@ function renderMeasuresHistory(){
   const last=S.measures.slice(-3).reverse();
   if(!last.length){ mh.innerHTML='<p class="tip">Sin medidas registradas todavía.</p>'; return; }
   const labels={waist:'Cintura',chest:'Pecho',hip:'Cadera',arm:'Brazo',thigh:'Muslo',fatPct:'% Grasa'};
-  mh.innerHTML=last.map(m=>`<div style="margin-top:10px"><div style="font-size:11px;color:var(--tx3);font-family:'DM Sans',sans-serif;margin-bottom:6px">${fmt(m.date,{day:'numeric',month:'short'})}</div>${Object.entries(labels).filter(([k])=>m[k]).map(([k,l])=>`<div class="mrow"><span class="mlabel">${l}</span><span class="mval">${m[k]}${k==='fatPct'?'%':'cm'}</span></div>`).join('')}</div>`).join('');
+  mh.innerHTML=last.map(m=>`<div style="margin-top:10px"><div style="font-size:11px;color:var(--tx3);font-family:'Plus Jakarta Sans',sans-serif;margin-bottom:6px">${fmt(m.date,{day:'numeric',month:'short'})}</div>${Object.entries(labels).filter(([k])=>m[k]).map(([k,l])=>`<div class="mrow"><span class="mlabel">${l}</span><span class="mval">${m[k]}${k==='fatPct'?'%':'cm'}</span></div>`).join('')}</div>`).join('');
 }
 
 function renderPRs(){
@@ -1148,7 +1148,7 @@ document.getElementById('progress-photo-input').addEventListener('change',functi
 
 function renderProgressPhotos(){
   const cont=document.getElementById('progress-photos');
-  cont.innerHTML=S.progressPhotos.slice(-8).reverse().map(p=>`<div style="flex-shrink:0;position:relative"><img src="${p.dataUrl}" style="width:90px;height:120px;object-fit:cover;border-radius:10px;display:block"/><div style="font-size:9px;color:var(--tx3);text-align:center;margin-top:4px;font-family:'DM Sans',sans-serif">${fmt(p.date,{day:'numeric',month:'short'})}</div></div>`).join('');
+  cont.innerHTML=S.progressPhotos.slice(-8).reverse().map(p=>`<div style="flex-shrink:0;position:relative"><img src="${p.dataUrl}" style="width:90px;height:120px;object-fit:cover;border-radius:10px;display:block"/><div style="font-size:9px;color:var(--tx3);text-align:center;margin-top:4px;font-family:'Plus Jakarta Sans',sans-serif">${fmt(p.date,{day:'numeric',month:'short'})}</div></div>`).join('');
   if(!S.progressPhotos.length) cont.innerHTML='<p class="tip">Añade fotos de progreso para comparar tu evolución.</p>';
 }
 
@@ -1226,7 +1226,7 @@ function renderSettings(){
   document.getElementById('goal-select').value=S.goal;
   document.getElementById('api-key-setting').value=S.apiKey||'';
   document.getElementById('profile-display').innerHTML=p?`
-    <div class="g2">${[['Nombre',p.name],['Edad',p.age+' años'],['Peso inicial',p.weight+'kg'],['Altura',p.height+'cm']].map(([l,v])=>`<div><div style="font-size:10px;color:var(--tx3);font-family:'DM Sans',sans-serif">${l}</div><div style="font-size:14px;font-weight:700">${v}</div></div>`).join('')}</div>`:'';
+    <div class="g2">${[['Nombre',p.name],['Edad',p.age+' años'],['Peso inicial',p.weight+'kg'],['Altura',p.height+'cm']].map(([l,v])=>`<div><div style="font-size:10px;color:var(--tx3);font-family:'Plus Jakarta Sans',sans-serif">${l}</div><div style="font-size:14px;font-weight:700">${v}</div></div>`).join('')}</div>`:'';
   renderAlerts();
 }
 
@@ -1242,7 +1242,7 @@ document.getElementById('reset-btn').addEventListener('click',()=>{ if(confirm('
 function renderAlerts(){
   const al=document.getElementById('alert-list');
   al.innerHTML=S.alerts.map(a=>`<div class="alert-item">
-    <div><div style="font-size:13px;font-weight:600">${a.msg}</div><div style="font-size:11px;color:var(--tx3);font-family:'DM Sans',sans-serif">⏰ ${a.time}</div></div>
+    <div><div style="font-size:13px;font-weight:600">${a.msg}</div><div style="font-size:11px;color:var(--tx3);font-family:'Plus Jakarta Sans',sans-serif">⏰ ${a.time}</div></div>
     <button onclick="removeAlert('${a.id}')" style="background:none;border:none;color:var(--tx4);cursor:pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
   </div>`).join('')||'<p class="tip">Sin alertas configuradas.</p>';
 }
@@ -1302,9 +1302,6 @@ applyTheme();
 if(!S.profile){
   document.getElementById('onboard').style.display='flex';
   renderOnboard();
-} else if(!S.apiKey){
-  document.getElementById('apisetup').style.display='flex';
-  document.getElementById('apisetup').className='on';
 } else {
   document.getElementById('app').style.display='flex';
   initApp();
