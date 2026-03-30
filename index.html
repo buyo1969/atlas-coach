@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
 <meta charset="UTF-8"/>
@@ -138,6 +139,7 @@ select.inp option{background:var(--bg2);color:var(--tx)}
 <body>
 
 <!-- ONBOARD -->
+
 <div id="onboard">
   <div class="logo">
     <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></div>
@@ -154,6 +156,7 @@ select.inp option{background:var(--bg2);color:var(--tx)}
 </div>
 
 <!-- API SETUP -->
+
 <div id="apisetup">
   <div class="logo">
     <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></div>
@@ -171,310 +174,314 @@ select.inp option{background:var(--bg2);color:var(--tx)}
 </div>
 
 <!-- MAIN APP -->
+
 <div id="app" style="display:none">
   <div id="screens">
 
-    <!-- HOME -->
-    <div class="scr on" id="scr-home">
-      <div style="margin-bottom:20px">
-        <p style="color:var(--tx3);font-size:13px;margin-bottom:4px;font-family:'Plus Jakarta Sans',sans-serif" id="home-date"></p>
-        <h1 style="font-size:26px;font-weight:800;line-height:1.1" id="home-greeting"></h1>
-      </div>
-      <!-- Phase banner -->
-      <div class="phase-pill" id="phase-banner"></div>
-      <!-- Stats grid -->
-      <div class="g2" style="margin-bottom:12px" id="home-stats"></div>
-      <!-- Cal progress -->
-      <div class="card">
-        <div class="row" style="margin-bottom:10px">
-          <span class="ct" style="margin:0">Balance calórico hoy</span>
-          <span style="font-size:12px;color:var(--tx3);font-family:'Plus Jakarta Sans',sans-serif" id="cal-nums"></span>
-        </div>
-        <div class="ptk"><div class="pfl" id="cal-bar" style="background:linear-gradient(90deg,var(--cy),var(--gr))"></div></div>
-        <div class="row" style="margin-top:8px">
-          <span style="font-size:11px;color:var(--tx3);font-family:'Plus Jakarta Sans',sans-serif" id="cal-remain"></span>
-          <span style="font-size:11px;color:var(--tx3);font-family:'Plus Jakarta Sans',sans-serif" id="cal-tdee"></span>
-        </div>
-      </div>
-      <!-- Macros -->
-      <div class="card" id="home-macros"></div>
-      <!-- Today supplements quick view -->
-      <div class="card" id="home-supps"></div>
+```
+<!-- HOME -->
+<div class="scr on" id="scr-home">
+  <div style="margin-bottom:20px">
+    <p style="color:var(--tx3);font-size:13px;margin-bottom:4px;font-family:'Plus Jakarta Sans',sans-serif" id="home-date"></p>
+    <h1 style="font-size:26px;font-weight:800;line-height:1.1" id="home-greeting"></h1>
+  </div>
+  <!-- Phase banner -->
+  <div class="phase-pill" id="phase-banner"></div>
+  <!-- Stats grid -->
+  <div class="g2" style="margin-bottom:12px" id="home-stats"></div>
+  <!-- Cal progress -->
+  <div class="card">
+    <div class="row" style="margin-bottom:10px">
+      <span class="ct" style="margin:0">Balance calórico hoy</span>
+      <span style="font-size:12px;color:var(--tx3);font-family:'Plus Jakarta Sans',sans-serif" id="cal-nums"></span>
     </div>
+    <div class="ptk"><div class="pfl" id="cal-bar" style="background:linear-gradient(90deg,var(--cy),var(--gr))"></div></div>
+    <div class="row" style="margin-top:8px">
+      <span style="font-size:11px;color:var(--tx3);font-family:'Plus Jakarta Sans',sans-serif" id="cal-remain"></span>
+      <span style="font-size:11px;color:var(--tx3);font-family:'Plus Jakarta Sans',sans-serif" id="cal-tdee"></span>
+    </div>
+  </div>
+  <!-- Macros -->
+  <div class="card" id="home-macros"></div>
+  <!-- Today supplements quick view -->
+  <div class="card" id="home-supps"></div>
+</div>
 
-    <!-- WORKOUT -->
-    <div class="scr" id="scr-workout">
-      <div class="row" style="margin-bottom:20px">
-        <h1 class="pt" style="margin:0">Entrenamiento</h1>
+<!-- WORKOUT -->
+<div class="scr" id="scr-workout">
+  <div class="row" style="margin-bottom:20px">
+    <h1 class="pt" style="margin:0">Entrenamiento</h1>
+    <div style="display:flex;gap:8px">
+      <button class="btni" id="gen-routine-btn" title="Generar rutina con IA">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </button>
+      <button class="btni" id="add-ex-btn">
+        <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+      </button>
+    </div>
+  </div>
+  <!-- Week tabs -->
+  <div style="display:flex;gap:6px;overflow-x:auto;margin-bottom:16px;padding-bottom:4px" id="week-tabs"></div>
+  <!-- Routine display -->
+  <div id="routine-display"></div>
+  <!-- Log session -->
+  <div id="log-panel" style="display:none">
+    <hr class="sep"/>
+    <div class="sl">REGISTRAR EJERCICIO</div>
+    <div class="card">
+      <input class="inp" id="ex-name" placeholder="Nombre del ejercicio..." style="margin-bottom:8px"/>
+      <div class="g4" style="margin-bottom:8px">
+        <div><label class="ilb">SERIES</label><input class="inp" id="ex-sets" type="number" placeholder="4"/></div>
+        <div><label class="ilb">REPS</label><input class="inp" id="ex-reps" placeholder="8-12"/></div>
+        <div><label class="ilb">KG</label><input class="inp" id="ex-kg" type="number" placeholder="80"/></div>
+        <div><label class="ilb">RPE</label><input class="inp" id="ex-rpe" type="number" placeholder="8"/></div>
+      </div>
+      <input class="inp" id="ex-notes" placeholder="Notas opcionales..." style="margin-bottom:8px"/>
+      <button class="btnp" id="add-ex-submit">Añadir ejercicio</button>
+    </div>
+  </div>
+  <!-- Today logged -->
+  <div id="today-ex-list"></div>
+</div>
+
+<!-- NUTRITION -->
+<div class="scr" id="scr-nutrition">
+  <div class="row" style="margin-bottom:20px">
+    <h1 class="pt" style="margin:0">Nutrición</h1>
+    <button class="btni" id="add-meal-btn">
+      <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
+  </div>
+  <!-- Macros summary -->
+  <div class="card" id="nutri-summary"></div>
+  <!-- Add panel -->
+  <div id="add-meal-panel" style="display:none">
+    <div class="card">
+      <div class="ct">Registrar alimento</div>
+      <!-- Tabs -->
+      <div style="display:flex;gap:6px;margin-bottom:14px">
+        <button class="btns on" id="tab-photo" onclick="switchNutriTab('photo')">📷 Foto</button>
+        <button class="btns" id="tab-search" onclick="switchNutriTab('search')">🔍 Buscar</button>
+        <button class="btns" id="tab-manual" onclick="switchNutriTab('manual')">✏️ Manual</button>
+      </div>
+      <!-- Photo tab -->
+      <div id="nutri-photo">
+        <img id="photo-preview" alt="preview"/>
+        <label style="display:block;width:100%;padding:30px;background:var(--bg3);border:2px dashed var(--bg4);border-radius:12px;text-align:center;cursor:pointer;color:var(--tx3);font-size:13px;font-family:'Plus Jakarta Sans',sans-serif">
+          📷 Toca para fotografiar tu comida
+          <input type="file" accept="image/*" capture="environment" id="food-photo-input" style="display:none"/>
+        </label>
+        <button class="btnp" id="analyze-photo-btn" style="display:none">Analizar con IA</button>
+      </div>
+      <!-- Search tab -->
+      <div id="nutri-search" style="display:none">
         <div style="display:flex;gap:8px">
-          <button class="btni" id="gen-routine-btn" title="Generar rutina con IA">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </button>
-          <button class="btni" id="add-ex-btn">
-            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </div>
-      </div>
-      <!-- Week tabs -->
-      <div style="display:flex;gap:6px;overflow-x:auto;margin-bottom:16px;padding-bottom:4px" id="week-tabs"></div>
-      <!-- Routine display -->
-      <div id="routine-display"></div>
-      <!-- Log session -->
-      <div id="log-panel" style="display:none">
-        <hr class="sep"/>
-        <div class="sl">REGISTRAR EJERCICIO</div>
-        <div class="card">
-          <input class="inp" id="ex-name" placeholder="Nombre del ejercicio..." style="margin-bottom:8px"/>
-          <div class="g4" style="margin-bottom:8px">
-            <div><label class="ilb">SERIES</label><input class="inp" id="ex-sets" type="number" placeholder="4"/></div>
-            <div><label class="ilb">REPS</label><input class="inp" id="ex-reps" placeholder="8-12"/></div>
-            <div><label class="ilb">KG</label><input class="inp" id="ex-kg" type="number" placeholder="80"/></div>
-            <div><label class="ilb">RPE</label><input class="inp" id="ex-rpe" type="number" placeholder="8"/></div>
-          </div>
-          <input class="inp" id="ex-notes" placeholder="Notas opcionales..." style="margin-bottom:8px"/>
-          <button class="btnp" id="add-ex-submit">Añadir ejercicio</button>
-        </div>
-      </div>
-      <!-- Today logged -->
-      <div id="today-ex-list"></div>
-    </div>
-
-    <!-- NUTRITION -->
-    <div class="scr" id="scr-nutrition">
-      <div class="row" style="margin-bottom:20px">
-        <h1 class="pt" style="margin:0">Nutrición</h1>
-        <button class="btni" id="add-meal-btn">
-          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-        </button>
-      </div>
-      <!-- Macros summary -->
-      <div class="card" id="nutri-summary"></div>
-      <!-- Add panel -->
-      <div id="add-meal-panel" style="display:none">
-        <div class="card">
-          <div class="ct">Registrar alimento</div>
-          <!-- Tabs -->
-          <div style="display:flex;gap:6px;margin-bottom:14px">
-            <button class="btns on" id="tab-photo" onclick="switchNutriTab('photo')">📷 Foto</button>
-            <button class="btns" id="tab-search" onclick="switchNutriTab('search')">🔍 Buscar</button>
-            <button class="btns" id="tab-manual" onclick="switchNutriTab('manual')">✏️ Manual</button>
-          </div>
-          <!-- Photo tab -->
-          <div id="nutri-photo">
-            <img id="photo-preview" alt="preview"/>
-            <label style="display:block;width:100%;padding:30px;background:var(--bg3);border:2px dashed var(--bg4);border-radius:12px;text-align:center;cursor:pointer;color:var(--tx3);font-size:13px;font-family:'Plus Jakarta Sans',sans-serif">
-              📷 Toca para fotografiar tu comida
-              <input type="file" accept="image/*" capture="environment" id="food-photo-input" style="display:none"/>
-            </label>
-            <button class="btnp" id="analyze-photo-btn" style="display:none">Analizar con IA</button>
-          </div>
-          <!-- Search tab -->
-          <div id="nutri-search" style="display:none">
-            <div style="display:flex;gap:8px">
-              <input class="inp" id="food-search-input" placeholder="ej: 100g de pechuga de pollo..."/>
-              <button class="btni on" id="food-search-btn">
-                <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 11-11"/></svg>
-              </button>
-            </div>
-          </div>
-          <!-- Manual tab -->
-          <div id="nutri-manual" style="display:none">
-            <input class="inp" id="manual-name" placeholder="Nombre del alimento..." style="margin-bottom:8px"/>
-            <div class="g4" style="margin-bottom:8px">
-              <div><label class="ilb">KCAL</label><input class="inp" id="m-kcal" type="number" placeholder="300"/></div>
-              <div><label class="ilb">PROT</label><input class="inp" id="m-prot" type="number" placeholder="25"/></div>
-              <div><label class="ilb">CARBS</label><input class="inp" id="m-carbs" type="number" placeholder="30"/></div>
-              <div><label class="ilb">GRASAS</label><input class="inp" id="m-fat" type="number" placeholder="10"/></div>
-            </div>
-            <button class="btnp" id="manual-add-btn">Añadir</button>
-          </div>
-          <!-- AI result -->
-          <div id="ai-food-result" style="display:none;margin-top:12px"></div>
-        </div>
-      </div>
-      <!-- Meal list -->
-      <div class="sl" id="meals-label" style="display:none">HOY</div>
-      <div id="meal-list"></div>
-    </div>
-
-    <!-- SUPPLEMENTS -->
-    <div class="scr" id="scr-supps">
-      <div class="row" style="margin-bottom:20px">
-        <h1 class="pt" style="margin:0">Suplementos</h1>
-        <button class="btni" id="add-supp-btn">
-          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-        </button>
-      </div>
-      <!-- Daily checklist -->
-      <div class="card">
-        <div class="ct">Checklist de hoy</div>
-        <div id="supp-checklist"></div>
-      </div>
-      <!-- Adherence -->
-      <div class="card">
-        <div class="ct">Adherencia esta semana</div>
-        <div id="supp-adherence"></div>
-      </div>
-      <!-- Add form -->
-      <div id="add-supp-panel" style="display:none">
-        <div class="card">
-          <div class="ct">Nuevo suplemento</div>
-          <input class="inp" id="supp-name" placeholder="Nombre (ej: Creatina)" style="margin-bottom:8px"/>
-          <input class="inp" id="supp-dose" placeholder="Dosis (ej: 5g)" style="margin-bottom:8px"/>
-          <input class="inp" id="supp-time" placeholder="Momento (ej: Con desayuno)" style="margin-bottom:8px"/>
-          <button class="btnp" id="supp-add-btn">Añadir suplemento</button>
-        </div>
-      </div>
-      <!-- Supp list manage -->
-      <div class="sl">MIS SUPLEMENTOS</div>
-      <div id="supp-list-manage"></div>
-    </div>
-
-    <!-- PROGRESS -->
-    <div class="scr" id="scr-progress">
-      <h1 class="pt">Progreso</h1>
-      <!-- Weight log -->
-      <div class="card">
-        <div class="row" style="margin-bottom:10px">
-          <span class="ct" style="margin:0">Registrar peso hoy</span>
-        </div>
-        <div style="display:flex;gap:8px">
-          <input class="inp" id="weight-input" type="number" step="0.1" placeholder="ej: 78.5"/>
-          <button class="btni on" id="weight-save-btn">
-            <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
-          </button>
-        </div>
-      </div>
-      <!-- Weight chart -->
-      <div class="card">
-        <div class="ct">Evolución del peso</div>
-        <div class="chart-wrap"><canvas id="weight-chart" height="120"></canvas></div>
-      </div>
-      <!-- Measures -->
-      <div class="card">
-        <div class="row" style="margin-bottom:12px">
-          <span class="ct" style="margin:0">Medidas corporales</span>
-          <button class="btni on" id="save-measures-btn">
-            <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
-          </button>
-        </div>
-        <div class="g2" style="margin-bottom:10px">
-          <div><label class="ilb">CINTURA (cm)</label><input class="inp" id="m-waist" type="number" placeholder="80"/></div>
-          <div><label class="ilb">PECHO (cm)</label><input class="inp" id="m-chest" type="number" placeholder="100"/></div>
-          <div><label class="ilb">CADERA (cm)</label><input class="inp" id="m-hip" type="number" placeholder="95"/></div>
-          <div><label class="ilb">BRAZO (cm)</label><input class="inp" id="m-arm" type="number" placeholder="35"/></div>
-          <div><label class="ilb">MUSLO (cm)</label><input class="inp" id="m-thigh" type="number" placeholder="55"/></div>
-          <div><label class="ilb">% GRASA</label><input class="inp" id="m-fat-pct" type="number" placeholder="18"/></div>
-        </div>
-        <div id="measures-history"></div>
-      </div>
-      <!-- PRs -->
-      <div class="card">
-        <div class="ct">Marcas personales (PRs)</div>
-        <div id="pr-list"></div>
-      </div>
-      <!-- Weekly summary -->
-      <div class="card">
-        <div class="row" style="margin-bottom:10px">
-          <span class="ct" style="margin:0">Resumen semanal IA</span>
-          <button class="btns" id="gen-summary-btn">Generar</button>
-        </div>
-        <div id="weekly-summary" class="tip"></div>
-      </div>
-      <!-- Progress photos -->
-      <div class="card">
-        <div class="row" style="margin-bottom:10px">
-          <span class="ct" style="margin:0">Fotos de progreso</span>
-          <label style="cursor:pointer">
-            <div class="btni on"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
-            <input type="file" accept="image/*" id="progress-photo-input" style="display:none"/>
-          </label>
-        </div>
-        <div id="progress-photos" style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px"></div>
-      </div>
-    </div>
-
-    <!-- COACH -->
-    <div id="scr-coach" class="scr">
-      <div class="chat-header">
-        <div class="chat-avatar"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></div>
-        <div>
-          <div style="font-size:14px;font-weight:700">Atlas Coach AI</div>
-          <div style="font-size:11px;color:var(--gr);font-family:'Plus Jakarta Sans',sans-serif" id="coach-status">● Online</div>
-        </div>
-        <div style="flex:1"></div>
-        <button class="btni" id="clear-chat-btn" title="Limpiar chat">
-          <svg viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
-        </button>
-      </div>
-      <div class="chat-msgs" id="chat-msgs"></div>
-      <div class="chat-footer">
-        <div class="chat-qp" id="quick-prompts"></div>
-        <div class="chat-input-row">
-          <textarea class="chat-ta" id="chat-input" rows="1" placeholder="Pregunta a tu coach..."></textarea>
-          <button class="send-btn" id="send-btn">
+          <input class="inp" id="food-search-input" placeholder="ej: 100g de pechuga de pollo..."/>
+          <button class="btni on" id="food-search-btn">
             <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 11-11"/></svg>
           </button>
         </div>
       </div>
+      <!-- Manual tab -->
+      <div id="nutri-manual" style="display:none">
+        <input class="inp" id="manual-name" placeholder="Nombre del alimento..." style="margin-bottom:8px"/>
+        <div class="g4" style="margin-bottom:8px">
+          <div><label class="ilb">KCAL</label><input class="inp" id="m-kcal" type="number" placeholder="300"/></div>
+          <div><label class="ilb">PROT</label><input class="inp" id="m-prot" type="number" placeholder="25"/></div>
+          <div><label class="ilb">CARBS</label><input class="inp" id="m-carbs" type="number" placeholder="30"/></div>
+          <div><label class="ilb">GRASAS</label><input class="inp" id="m-fat" type="number" placeholder="10"/></div>
+        </div>
+        <button class="btnp" id="manual-add-btn">Añadir</button>
+      </div>
+      <!-- AI result -->
+      <div id="ai-food-result" style="display:none;margin-top:12px"></div>
     </div>
+  </div>
+  <!-- Meal list -->
+  <div class="sl" id="meals-label" style="display:none">HOY</div>
+  <div id="meal-list"></div>
+</div>
 
-    <!-- SETTINGS -->
-    <div class="scr" id="scr-settings">
-      <h1 class="pt">Ajustes</h1>
-      <!-- Theme -->
-      <div class="card">
-        <div class="ct">Apariencia</div>
-        <div class="row">
-          <span style="font-size:13px;font-family:'Plus Jakarta Sans',sans-serif">Modo oscuro</span>
-          <button class="toggle on" id="theme-toggle"></button>
-        </div>
-      </div>
-      <!-- Notifications -->
-      <div class="card">
-        <div class="row" style="margin-bottom:12px">
-          <span class="ct" style="margin:0">Alertas personalizadas</span>
-          <button class="btni on" id="add-alert-btn">
-            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </div>
-        <div id="add-alert-panel" style="display:none;margin-bottom:12px">
-          <input class="inp" id="alert-msg" placeholder="Mensaje (ej: Toma la creatina)" style="margin-bottom:8px"/>
-          <input class="inp" id="alert-time" type="time" style="margin-bottom:8px"/>
-          <button class="btnp" id="alert-save-btn">Guardar alerta</button>
-        </div>
-        <div id="alert-list"></div>
-        <p class="tip" style="margin-top:10px">💡 Acepta los permisos de notificación cuando el sistema te lo pida. Instala la app en tu pantalla de inicio para recibirlas.</p>
-      </div>
-      <!-- Goal -->
-      <div class="card">
-        <div class="ct">Objetivo actual</div>
-        <select class="inp" id="goal-select">
-          <option value="cut">Pérdida de grasa</option>
-          <option value="recomp">Recomposición corporal</option>
-          <option value="bulk">Ganancia muscular</option>
-          <option value="strength">Fuerza / rendimiento</option>
-        </select>
-        <button class="btnp" id="goal-save-btn" style="margin-top:8px">Actualizar objetivo</button>
-      </div>
-      <!-- Profile -->
-      <div class="card">
-        <div class="ct">Mi perfil</div>
-        <div id="profile-display"></div>
-      </div>
-      <!-- API key -->
-      <div class="card">
-        <div class="ct">API Key (Coach AI)</div>
-        <input class="inp" id="api-key-setting" type="password" placeholder="sk-ant-api03-..."/>
-        <button class="btnp" id="api-update-btn" style="margin-top:8px">Actualizar key</button>
-      </div>
-      <!-- Reset -->
-      <button class="btnp" id="reset-btn" style="background:var(--bg3);color:var(--tx3);margin-top:4px">Reiniciar todos los datos</button>
+<!-- SUPPLEMENTS -->
+<div class="scr" id="scr-supps">
+  <div class="row" style="margin-bottom:20px">
+    <h1 class="pt" style="margin:0">Suplementos</h1>
+    <button class="btni" id="add-supp-btn">
+      <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
+  </div>
+  <!-- Daily checklist -->
+  <div class="card">
+    <div class="ct">Checklist de hoy</div>
+    <div id="supp-checklist"></div>
+  </div>
+  <!-- Adherence -->
+  <div class="card">
+    <div class="ct">Adherencia esta semana</div>
+    <div id="supp-adherence"></div>
+  </div>
+  <!-- Add form -->
+  <div id="add-supp-panel" style="display:none">
+    <div class="card">
+      <div class="ct">Nuevo suplemento</div>
+      <input class="inp" id="supp-name" placeholder="Nombre (ej: Creatina)" style="margin-bottom:8px"/>
+      <input class="inp" id="supp-dose" placeholder="Dosis (ej: 5g)" style="margin-bottom:8px"/>
+      <input class="inp" id="supp-time" placeholder="Momento (ej: Con desayuno)" style="margin-bottom:8px"/>
+      <button class="btnp" id="supp-add-btn">Añadir suplemento</button>
     </div>
+  </div>
+  <!-- Supp list manage -->
+  <div class="sl">MIS SUPLEMENTOS</div>
+  <div id="supp-list-manage"></div>
+</div>
+
+<!-- PROGRESS -->
+<div class="scr" id="scr-progress">
+  <h1 class="pt">Progreso</h1>
+  <!-- Weight log -->
+  <div class="card">
+    <div class="row" style="margin-bottom:10px">
+      <span class="ct" style="margin:0">Registrar peso hoy</span>
+    </div>
+    <div style="display:flex;gap:8px">
+      <input class="inp" id="weight-input" type="number" step="0.1" placeholder="ej: 78.5"/>
+      <button class="btni on" id="weight-save-btn">
+        <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+      </button>
+    </div>
+  </div>
+  <!-- Weight chart -->
+  <div class="card">
+    <div class="ct">Evolución del peso</div>
+    <div class="chart-wrap"><canvas id="weight-chart" height="120"></canvas></div>
+  </div>
+  <!-- Measures -->
+  <div class="card">
+    <div class="row" style="margin-bottom:12px">
+      <span class="ct" style="margin:0">Medidas corporales</span>
+      <button class="btni on" id="save-measures-btn">
+        <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+      </button>
+    </div>
+    <div class="g2" style="margin-bottom:10px">
+      <div><label class="ilb">CINTURA (cm)</label><input class="inp" id="m-waist" type="number" placeholder="80"/></div>
+      <div><label class="ilb">PECHO (cm)</label><input class="inp" id="m-chest" type="number" placeholder="100"/></div>
+      <div><label class="ilb">CADERA (cm)</label><input class="inp" id="m-hip" type="number" placeholder="95"/></div>
+      <div><label class="ilb">BRAZO (cm)</label><input class="inp" id="m-arm" type="number" placeholder="35"/></div>
+      <div><label class="ilb">MUSLO (cm)</label><input class="inp" id="m-thigh" type="number" placeholder="55"/></div>
+      <div><label class="ilb">% GRASA</label><input class="inp" id="m-fat-pct" type="number" placeholder="18"/></div>
+    </div>
+    <div id="measures-history"></div>
+  </div>
+  <!-- PRs -->
+  <div class="card">
+    <div class="ct">Marcas personales (PRs)</div>
+    <div id="pr-list"></div>
+  </div>
+  <!-- Weekly summary -->
+  <div class="card">
+    <div class="row" style="margin-bottom:10px">
+      <span class="ct" style="margin:0">Resumen semanal IA</span>
+      <button class="btns" id="gen-summary-btn">Generar</button>
+    </div>
+    <div id="weekly-summary" class="tip"></div>
+  </div>
+  <!-- Progress photos -->
+  <div class="card">
+    <div class="row" style="margin-bottom:10px">
+      <span class="ct" style="margin:0">Fotos de progreso</span>
+      <label style="cursor:pointer">
+        <div class="btni on"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+        <input type="file" accept="image/*" id="progress-photo-input" style="display:none"/>
+      </label>
+    </div>
+    <div id="progress-photos" style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px"></div>
+  </div>
+</div>
+
+<!-- COACH -->
+<div id="scr-coach" class="scr">
+  <div class="chat-header">
+    <div class="chat-avatar"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></div>
+    <div>
+      <div style="font-size:14px;font-weight:700">Atlas Coach AI</div>
+      <div style="font-size:11px;color:var(--gr);font-family:'Plus Jakarta Sans',sans-serif" id="coach-status">● Online</div>
+    </div>
+    <div style="flex:1"></div>
+    <button class="btni" id="clear-chat-btn" title="Limpiar chat">
+      <svg viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+    </button>
+  </div>
+  <div class="chat-msgs" id="chat-msgs"></div>
+  <div class="chat-footer">
+    <div class="chat-qp" id="quick-prompts"></div>
+    <div class="chat-input-row">
+      <textarea class="chat-ta" id="chat-input" rows="1" placeholder="Pregunta a tu coach..."></textarea>
+      <button class="send-btn" id="send-btn">
+        <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 11-11"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- SETTINGS -->
+<div class="scr" id="scr-settings">
+  <h1 class="pt">Ajustes</h1>
+  <!-- Theme -->
+  <div class="card">
+    <div class="ct">Apariencia</div>
+    <div class="row">
+      <span style="font-size:13px;font-family:'Plus Jakarta Sans',sans-serif">Modo oscuro</span>
+      <button class="toggle on" id="theme-toggle"></button>
+    </div>
+  </div>
+  <!-- Notifications -->
+  <div class="card">
+    <div class="row" style="margin-bottom:12px">
+      <span class="ct" style="margin:0">Alertas personalizadas</span>
+      <button class="btni on" id="add-alert-btn">
+        <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+      </button>
+    </div>
+    <div id="add-alert-panel" style="display:none;margin-bottom:12px">
+      <input class="inp" id="alert-msg" placeholder="Mensaje (ej: Toma la creatina)" style="margin-bottom:8px"/>
+      <input class="inp" id="alert-time" type="time" style="margin-bottom:8px"/>
+      <button class="btnp" id="alert-save-btn">Guardar alerta</button>
+    </div>
+    <div id="alert-list"></div>
+    <p class="tip" style="margin-top:10px">💡 Acepta los permisos de notificación cuando el sistema te lo pida. Instala la app en tu pantalla de inicio para recibirlas.</p>
+  </div>
+  <!-- Goal -->
+  <div class="card">
+    <div class="ct">Objetivo actual</div>
+    <select class="inp" id="goal-select">
+      <option value="cut">Pérdida de grasa</option>
+      <option value="recomp">Recomposición corporal</option>
+      <option value="bulk">Ganancia muscular</option>
+      <option value="strength">Fuerza / rendimiento</option>
+    </select>
+    <button class="btnp" id="goal-save-btn" style="margin-top:8px">Actualizar objetivo</button>
+  </div>
+  <!-- Profile -->
+  <div class="card">
+    <div class="ct">Mi perfil</div>
+    <div id="profile-display"></div>
+  </div>
+  <!-- API key -->
+  <div class="card">
+    <div class="ct">API Key (Coach AI)</div>
+    <input class="inp" id="api-key-setting" type="password" placeholder="sk-ant-api03-..."/>
+    <button class="btnp" id="api-update-btn" style="margin-top:8px">Actualizar key</button>
+  </div>
+  <!-- Reset -->
+  <button class="btnp" id="reset-btn" style="background:var(--bg3);color:var(--tx3);margin-top:4px">Reiniciar todos los datos</button>
+</div>
+```
 
   </div><!-- /screens -->
 
   <!-- BOTTOM NAV -->
+
   <nav id="nav">
     <button class="nb on" onclick="goTo('home')">
       <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -833,13 +840,18 @@ document.getElementById('gen-routine-btn').addEventListener('click', async()=>{
 {"days":[{"name":"Lunes","focus":"Pecho y Tríceps","exercises":[{"name":"Press banca","sets":4,"reps":"6-8","rest":"2-3 min","note":"RPE 8"}]},{"name":"Martes","focus":"Espalda y Bíceps","exercises":[...]},{"name":"Miércoles","focus":"Descanso","exercises":[]},{"name":"Jueves","focus":"Hombros y Core","exercises":[...]},{"name":"Viernes","focus":"Pierna","exercises":[...]},{"name":"Sábado","focus":"Descanso","exercises":[]},{"name":"Domingo","focus":"Fullbody Metabólico","exercises":[...]}]}
 Incluye 5-7 ejercicios por día de entrenamiento. No incluyas nada fuera del JSON.`;
   try{
-    const res=await callAI([{role:'user',content:prompt}],'Eres un entrenador experto. Responde SOLO con JSON válido, sin texto adicional, sin markdown.',1200);
-    const clean=res.replace(/```json|```/g,'').trim();
+    const res=await callAI([{role:'user',content:prompt}],'Eres un entrenador experto. Responde SOLO con JSON valido, sin texto adicional, sin markdown.',2000);
+    const start=res.indexOf('{');
+    const end=res.lastIndexOf('}');
+    if(start===-1||end===-1) throw new Error('Sin JSON en respuesta');
+    const clean=res.slice(start,end+1);
     const parsed=JSON.parse(clean);
+    if(!parsed.days||!Array.isArray(parsed.days)) throw new Error('Estructura invalida');
     S.routine={week:1,...parsed};
     save();
     renderRoutineDay();
-  }catch(e){ alert('Error generando rutina. Comprueba tu API key.'); }
+    alert('Rutina generada correctamente');
+  }catch(e){ alert('Error: '+e.message+'. Verifica que tienes creditos en console.anthropic.com'); }
   btn.disabled=false;
   btn.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
 });
@@ -1307,5 +1319,6 @@ if(!S.profile){
   initApp();
 }
 </script>
+
 </body>
 </html>
